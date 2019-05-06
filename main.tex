@@ -1,0 +1,129 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{csquotes}
+
+\usepackage{gensymb}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.14}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/]
+
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\usepackage[parfill]{parskip}
+
+\usepackage{amsmath}
+
+%\usepackage{fancyhdr}
+%\fancypagestyle{titlepagestyle}
+%{
+%   \fancyhf{}
+%   \fancyfoot[L]{}%\emph{This text needs to appear on the title %page}}
+%   \renewcommand{\headrulewidth}{0 mm}
+%}
+
+\usepackage{titling}
+
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\Large\bfseries}{\thechapter}{1em}{}
+% \titleformat{\section}
+%  {\normalfont\bfseries}{}{1em}{}
+%\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\makeatletter
+\renewcommand\footnotesize{%
+   \@setfontsize\footnotesize\@ixpt{11}%
+   \abovedisplayskip 8\p@ \@plus2\p@ \@minus4\p@
+   \abovedisplayshortskip \z@ \@plus\p@
+   \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+   \def\@listi{\leftmargin\leftmargini
+               \topsep 4\p@ \@plus2\p@ \@minus2\p@
+               \parsep 2\p@ \@plus\p@ \@minus\p@
+               \itemsep \parsep}%
+   \belowdisplayskip \abovedisplayskip
+}
+\makeatother
+
+%\usepackage{ftnxtra} %\autocite i \caption
+\usepackage[backend=bibtex,style=verbose]{biblatex}  % style kan också vara authoryear (el. dyl.)
+\DeclareNameAlias{sortname}{family-given}
+\renewbibmacro{in:}{}
+
+\addbibresource{referenser.bib}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\begin{titlepage}
+	\centering
+	%\includegraphics[width=0.15\textwidth]{example-image-1x1}\par\vspace{1cm}
+	%{\LARGE Blackebergs gymnasium \par}
+	%\vspace{1.25cm}
+	{\huge\bfseries Undersökning av Vintergatans struktur \par}
+	%\vspace{0.5cm}
+	%{\large Appbygge med användning av metodik för att främja användarvänlighet \par}
+	\vfill
+	{\Large\begin{tabular}{c c}
+	     Gustav Sörnäs & Vilhelm Larsson  \\
+	     Blackebergs gymnasium & Bromma gymnasium \\
+	     Na16c & T16
+	\end{tabular}\par}
+	\vfill
+	Handledare:\par
+	Christina \textsc{Kronlund} - Bromma gymnasium\\
+	Karin \textsc{Enström Salomonsson} - Bromma gymnasium\\
+	Simon \textsc{Eriksson} - Institutionen för Astronomi - Stockholms Universitet\\
+	Thomas \textsc{Pettersson} - Blackebergs gymnasium
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+\newpage
+\pagenumbering{roman}
+
+\chapter*{Abstract}
+\input{abstract}
+
+\newpage
+
+\tableofcontents
+
+\listoffigures
+
+\newpage
+\pagenumbering{arabic}
+
+\include{inledning}
+\include{metod}
+\include{resultat}
+\include{diskussion}
+\include{avslut}
+
+\chapter{Referenser}
+\printbibliography[heading=none]
+
+\section{Bilder}
+\begin{description}
+    \item [Figur \ref{fig:atmo_transparent}] \url{https://www.eso.org/public/usa/images/atm_opacity/}
+    \item [Figur \ref{fig:galactic_coords}] \url{http://www.thinkastronomy.com/M13/Manual/common/galactic_coords.html}
+    \item [Figur \ref{fig:trig}] \url{http://www.astro.lu.se/Education/utb/ASTA33/radiosweden_ht17.pdf}
+\end{description}
+
+\chapter{Bilaga}
+\begin{description}
+    \item [Våra mätvärden] är för stora för det här dokumentet så de återfinns på \url{http://v1.se/1b48}
+\end{description}
+\end{document}
